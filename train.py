@@ -6,11 +6,9 @@ import random
 
 from dataloader import ShapeNet_Dataset
 from model import Decoder
+import matplotlib.pyplot as plt
 
-# from model.dataset import ShapeNet_Dataset
-# from model.decoder import Decoder
-
-def train_decoder(epochs = 1000000,
+def train_decoder(epochs = 100000,
                 batch_size=5,
                 lat_vecs_std = 0.01,
                 decoder_lr = 0.0005,
@@ -106,10 +104,24 @@ def train_decoder(epochs = 1000000,
         epoch_loss = np.mean(losses)
         loss_log.append(epoch_loss)
         print('[%d/%d] Loss: %.5f' % (epoch+1, epochs, epoch_loss))
-    torch.save({
+        
+        if (epoch + 1) % 10000 == 0:
+            plt.figure(figsize=(10, 6))
+            plt.plot(loss_log, label='Training Loss')
+            plt.xlabel('Epoch')
+            plt.ylabel('Loss')
+            plt.title('Training Loss Curve')
+            plt.legend()
+            plt.grid(True)
+            plt.savefig(f"{checkpoint_save_path}_loss_curve_{epoch + 1}.png")
+            plt.close()
+
+            torch.save({
                 'epoch': epoch,
                 'model': SDF_autodecoder.state_dict(),
                 'latent_vectors': lat_vecs.state_dict(),
                 'optimizer': optimizer_all.state_dict(),
                 'loss_log': loss_log,
                 }, checkpoint_save_path + str(epoch+1) + ".pt")
+            print(f"Checkpoint and loss curve image saved at epoch {epoch + 1}")
+

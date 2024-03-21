@@ -43,7 +43,7 @@ if __name__ == "__main__":
 
     # ------------ load decoder ------------
     decoder = Decoder().to(device)
-    checkpoint = torch.load("/work/mech-ai-scratch/ekimara/DeepSDFCode/Deep-SDF-Autodecorder/checkpoints/checkpoints100.pt")
+    checkpoint = torch.load("/work/mech-ai-scratch/ekimara/DeepSDFCode/Deep-SDF-Autodecorder/checkpoints/checkpoint200.pt")
     decoder.load_state_dict(checkpoint["model"])
 
 
