@@ -10,13 +10,13 @@ from model import Decoder
 # from model.dataset import ShapeNet_Dataset
 # from model.decoder import Decoder
 
-def train_decoder(epochs = 100,
+def train_decoder(epochs = 1000000,
                 batch_size=5,
                 lat_vecs_std = 0.01,
                 decoder_lr = 0.0005,
                 lat_vecs_lr = 0.001,
                 train_data_path = "/work/mech-ai-scratch/ekimara/DeepSDFCode/Deep-SDF-Autodecorder/processed_data/train",
-                checkpoint_save_path = "/work/mech-ai-scratch/ekimara/DeepSDFCode/Deep-SDF-Autodecorder/checkpoints"):
+                checkpoint_save_path = "/work/mech-ai-scratch/ekimara/DeepSDFCode/Deep-SDF-Autodecorder/checkpoints/checkpoint"):
 
 # def train_decoder(epochs = 500,
 #                 batch_size=5,
