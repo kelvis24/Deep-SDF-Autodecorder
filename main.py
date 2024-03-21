@@ -1,5 +1,3 @@
-
-
 from PointCloudProcessor import PointCloudProcessor
 from custom_mesh_to_sdf import MeshToSDFConverter
 from dataloader import ShapeNet_Dataset
@@ -11,30 +9,13 @@ import torch
 import matplotlib.pyplot as plt
 import os
 
-def plot_point_cloud(mesh, title="Point Cloud", ax=None):
-    points = mesh.vertices  # Extract vertices from the mesh
-
-    if ax is None:
-        fig = plt.figure(figsize=(8, 6))
-        ax = fig.add_subplot(111, projection='3d')
-
-    ax.scatter(points[:, 0], points[:, 1], points[:, 2], s=1)  # 's' is the size of each point
-    ax.set_title(title)
-    ax.set_xlabel('X')
-    ax.set_ylabel('Y')
-    ax.set_zlabel('Z')
-    plt.show()
-
-
 if __name__ == "__main__":
-    
     # pc2m = PointCloudToMeshConverter('/Users/elviskimara/Downloads/DeepSDFcode/data/B73-selected')
 
     # # Get the list of trimesh objects
     # meshes = pc2m.get_open3Dmeshes()
     
     
-
     # # # Example usage
     # converter = MeshToSDFConverter(target_directory="./processed_data/train/")
     # converter.process_meshes(meshes)
