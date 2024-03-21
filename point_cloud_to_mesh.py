@@ -83,15 +83,19 @@ class PointCloudToMeshConverter:
         plt.show()
 
 
-# # Initialize the converter with the directory containing your point clouds
-# converter = PointCloudToMeshConverter('/Users/elviskimara/Downloads/DeepSDFcode/data/B73-selected')
 
-# # Get the list of trimesh objects
-# trimeshes = converter.get_trimeshes()
+if __name__ == "__main__":
+    print("Hello 1")
+    # Initialize the converter with the directory containing your point clouds
+    converter = PointCloudToMeshConverter('/work/mech-ai-scratch/ekimara/DeepSDFCode/Deep-SDF-Autodecorder/data/B73-selected')
+    print("Hello 2")
+    # Get the list of trimesh objects
+    trimeshes = converter.get_trimeshes()
+    print("Hello 3")
+    # Now you can work with the list of trimeshes for further processing or analysis
+    # For example, you could save each trimesh to a file
+    for i, trimesh in enumerate(trimeshes):
+        # trimesh.export(f'mesh_{i}.ply')
+        print(f'{i}')
 
-# # Now you can work with the list of trimeshes for further processing or analysis
-# # For example, you could save each trimesh to a file
-# for i, trimesh in enumerate(trimeshes):
-#     trimesh.export(f'mesh_{i}.ply')
-
-# converter.visualize_meshes()
+    # converter.visualize_meshes()

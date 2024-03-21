@@ -40,6 +40,25 @@ class PointCloudProcessor:
         ax.set_ylabel('Y')
         ax.set_zlabel('Z')
         plt.show()
+        
+    
+    def plot_point_cloud_as_image(self, points, title="Point Cloud", output_dir="/work/mech-ai-scratch/ekimara/DeepSDFCode/Deep-SDF-Autodecorder/output", file_name="point_cloud.png"):
+        # Ensure the output directory exists
+        if not os.path.exists(output_dir):
+            os.makedirs(output_dir)
+
+        # Create the plot
+        fig = plt.figure(figsize=(8, 6))
+        ax = fig.add_subplot(111, projection='3d')
+        ax.scatter(points[:, 0], points[:, 1], points[:, 2], s=1)  # 's' is the size of each point
+        ax.set_title(title)
+        ax.set_xlabel('X')
+        ax.set_ylabel('Y')
+        ax.set_zlabel('Z')
+        
+        # Save the plot to a file
+        plt.savefig(os.path.join(output_dir, file_name))
+        plt.close(fig)  # Close the figure to free memory
 
     def visualize_reconstruction(self, original, reconstructed, title1="Original", title2="Reconstructed"):
         fig = plt.figure(figsize=(12, 6))
@@ -70,8 +89,9 @@ class PointCloudProcessor:
 
 if __name__ == "__main__":
     # Example usage:
-    point_clouds_directory = '/content/reconstruction'
+    point_clouds_directory = '/work/mech-ai-scratch/ekimara/DeepSDFCode/Deep-SDF-Autodecorder/data'
     processor = PointCloudProcessor(point_clouds_directory)
-
+    print("Helo")
     for i, point_cloud in enumerate(processor.point_clouds):
-        processor.plot_point_cloud(point_cloud, title=f"Point Cloud {i + 1}")
+        # processor.plot_point_cloud(point_cloud, title=f"Point Cloud {i + 1}")
+        print(i)

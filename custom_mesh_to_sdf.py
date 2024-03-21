@@ -71,11 +71,16 @@ class MeshToSDFConverter:
 
 if __name__ == "__main__":
     # Initialize the converter with the directory containing your point clouds
-    pc2m = PointCloudToMeshConverter('/Users/elviskimara/Downloads/DeepSDFcode/data/B73-selected')
+    print("1")
+    pc2m = PointCloudToMeshConverter('/work/mech-ai-scratch/ekimara/DeepSDFCode/Deep-SDF-Autodecorder/data/B73-selected')
+    print("2")
 
     # Get the list of trimesh objects
     meshes = pc2m.get_open3Dmeshes()
+    print("3")
 
     # # Example usage
     converter = MeshToSDFConverter(target_directory="./processed_data/train/")
+    print("4")
     converter.process_meshes(meshes)
+    print("5")

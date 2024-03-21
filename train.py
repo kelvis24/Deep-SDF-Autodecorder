@@ -4,16 +4,19 @@ from torch.utils.data import DataLoader
 import numpy as np
 import random
 
+from dataloader import ShapeNet_Dataset
+from model import Decoder
+
 # from model.dataset import ShapeNet_Dataset
 # from model.decoder import Decoder
 
-def train_decoder(epochs = 100000,
+def train_decoder(epochs = 100,
                 batch_size=5,
                 lat_vecs_std = 0.01,
                 decoder_lr = 0.0005,
                 lat_vecs_lr = 0.001,
-                train_data_path = "/content/processed_data/train",
-                checkpoint_save_path = "/content/checkpoints/"):
+                train_data_path = "/work/mech-ai-scratch/ekimara/DeepSDFCode/Deep-SDF-Autodecorder/processed_data/train",
+                checkpoint_save_path = "/work/mech-ai-scratch/ekimara/DeepSDFCode/Deep-SDF-Autodecorder/checkpoints"):
 
 # def train_decoder(epochs = 500,
 #                 batch_size=5,
